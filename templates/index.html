@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🍽️ Recipe Recommender</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🍳 Ingredient-Based Recipe Recommender</h1>
+        <p class="subtitle">Enter ingredients you have, and get recipe ideas instantly!</p>
+        
+        <form method="POST" class="form-box">
+            <input type="text" name="ingredients" placeholder="e.g. tomato, cheese, pasta" required autocomplete="off">
+            <button type="submit">Get Recipes</button>
+        </form>
+
+        {% if recommendations %}
+        <div class="results">
+            <h2>🍲 Top Recipe Recommendations:</h2>
+            {% for rec in recommendations %}
+                <div class="recipe-card">
+                    <h3><a href="{{ rec.url }}" target="_blank">{{ loop.index }}. {{ rec.title }}</a></h3>
+                    <p><strong>Rating:</strong> {{ rec.rating }}</p>
+                    <p><strong>Ingredients:</strong> {{ rec.ingredients }}</p>
+                    <p><strong>Description:</strong> {{ rec.description }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
