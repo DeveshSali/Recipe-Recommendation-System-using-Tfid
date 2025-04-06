@@ -1,27 +1,31 @@
-
+/* Reset & Defaults */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body Styling */
+/* Body with food background image */
 body {
     font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)),
+                url("/static/images/food_bg.jpg") no-repeat center center fixed;
+    background-size: cover;
     background-color: #fffaf5;
     color: #333;
-    caret-color: transparent; 
+    caret-color: transparent; /* Hide blinking caret when not in input */
 }
 
-/* Main Container */
+/* Main container with semi-transparent white background */
 .container {
-    width: 90%;
+    width: 100%;
     max-width: 800px;
-    margin: 60px auto;
-    background: #ffffff;
+    margin: 70px auto;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(3px);
     padding: 40px 30px;
     border-radius: 12px;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 /* Header */
@@ -34,11 +38,11 @@ h1 {
 .subtitle {
     text-align: center;
     font-size: 1rem;
-    color: #888;
+    color: #666;
     margin-bottom: 30px;
 }
 
-/* Form Styling */
+/* Form */
 .form-box {
     display: flex;
     flex-direction: column;
